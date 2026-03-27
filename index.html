@@ -156,12 +156,25 @@ nav .container { display: flex; justify-content: space-between; align-items: cen
   margin-bottom: 20px;
   animation: fadeInUp 0.6s ease-out 0.1s both;
 }
+.role-wrapper {
+  display: inline;
+}
 .hero h1 .gradient-text {
   background: var(--gradient-1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+.role-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 0.85em;
+  background: var(--accent);
+  margin-left: 2px;
+  vertical-align: baseline;
+  animation: blink 0.7s step-end infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 .hero-description {
   font-size: 1.05rem;
   color: var(--text-dim);
@@ -618,7 +631,7 @@ footer {
     <div class="hero-grid">
       <div class="hero-content">
         <div class="hero-tag"><span class="dot"></span> Open to Opportunities</div>
-        <h1>Yazan Al Shash<br><span class="gradient-text">Data Analyst</span></h1>
+        <h1>Yazan Al Shash<br><span class="role-wrapper"><span class="gradient-text" id="rotatingRole">Data Analyst</span><span class="role-cursor" id="roleCursor"></span></span></h1>
         <p class="hero-description">
           Transforming raw data into clear, actionable insights. Skilled in Python, SQL, Power BI, and machine learning&mdash;with a biomedical science foundation and a passion for solving real problems through analytics.
         </p>
@@ -961,6 +974,60 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     }
   });
 });
+
+// ─── Rotating Role Titles ───
+(function() {
+  const roles = [
+    'Data Analyst',
+    'Data Scientist',
+    'Business Analyst',
+    'BI Developer',
+    'Analytics Engineer',
+    'Financial Analyst',
+    'Marketing Analyst',
+    'Healthcare Analyst',
+    'Operations Analyst',
+    'Supply Chain Analyst',
+  ];
+  const el = document.getElementById('rotatingRole');
+  const cursor = document.getElementById('roleCursor');
+  let roleIndex = 0;
+  let charIndex = roles[0].length;
+  let deleting = true;
+  let pauseTimer = 0;
+
+  function tick() {
+    const current = roles[roleIndex];
+
+    if (pauseTimer > 0) {
+      pauseTimer--;
+      setTimeout(tick, 60);
+      return;
+    }
+
+    if (deleting) {
+      charIndex--;
+      el.textContent = current.substring(0, charIndex);
+      if (charIndex === 0) {
+        deleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        pauseTimer = 5;
+      }
+      setTimeout(tick, 35);
+    } else {
+      const next = roles[roleIndex];
+      charIndex++;
+      el.textContent = next.substring(0, charIndex);
+      if (charIndex === next.length) {
+        deleting = true;
+        pauseTimer = 30;
+      }
+      setTimeout(tick, 65);
+    }
+  }
+
+  setTimeout(() => { pauseTimer = 25; tick(); }, 2000);
+})();
 
 // ─── Scroll-Reactive Background ───
 (function() {
