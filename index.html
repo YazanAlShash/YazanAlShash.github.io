@@ -268,6 +268,9 @@ nav .container { display: flex; justify-content: space-between; align-items: cen
   letter-spacing: 1.5px;
   margin-top: 4px;
 }
+.stat-card-wide {
+  grid-column: 1 / -1;
+}
 
 /* ─── Sections ─── */
 section { padding: 100px 0; }
@@ -685,7 +688,7 @@ footer {
         <div class="hero-tag"><span class="dot"></span> Open to Opportunities</div>
         <h1>Yazan Al Shash<br><span class="role-wrapper"><span class="gradient-text" id="rotatingRole">Data Analyst</span><span class="role-cursor" id="roleCursor"></span></span></h1>
         <p class="hero-description">
-          Transforming raw data into clear, actionable insights. Skilled in Python, SQL, Power BI, and machine learning&mdash;with a biomedical science foundation and a passion for solving real problems through analytics.
+          Transforming raw data into clear, actionable insights. Two live-deployed Streamlit apps, an enterprise capstone delivered to a real client, and ML pipelines spanning classification, forecasting, and clustering&mdash;backed by a biomedical science foundation.
         </p>
         <div class="hero-actions">
           <a href="#projects" class="btn btn-primary">View Projects</a>
@@ -695,10 +698,11 @@ footer {
       <div class="hero-visual">
         <div class="hero-orb"></div>
         <div class="hero-stats">
-          <div class="stat-card"><div class="num">8+</div><div class="label">Projects</div></div>
-          <div class="stat-card"><div class="num">10+</div><div class="label">Tools</div></div>
-          <div class="stat-card"><div class="num">BSc</div><div class="label">Biomed</div></div>
-          <div class="stat-card"><div class="num">GC</div><div class="label">Analytics</div></div>
+          <div class="stat-card"><div class="num">4</div><div class="label">Projects</div></div>
+          <div class="stat-card"><div class="num">2</div><div class="label">Live Apps</div></div>
+          <div class="stat-card"><div class="num">BSc</div><div class="label">Biomed Science</div></div>
+          <div class="stat-card"><div class="num">Post-Grad</div><div class="label">Data Analytics</div></div>
+          <div class="stat-card stat-card-wide"><div class="num">3.75 <span style="font-size:1.1rem;font-weight:600;opacity:0.6">/ 4.0</span></div><div class="label">GPA &middot; Data Analytics Program</div></div>
         </div>
       </div>
     </div>
@@ -732,10 +736,12 @@ footer {
           <span class="skill-tag" data-tip="Core language across all projects">Python</span>
           <span class="skill-tag" data-tip="Data wrangling in 5+ projects">Pandas</span>
           <span class="skill-tag" data-tip="Statistical computing & array ops">NumPy</span>
-          <span class="skill-tag" data-tip="Churn prediction — HALIGHT capstone">scikit-learn</span>
-          <span class="skill-tag" data-tip="Deep learning model development">PyTorch</span>
-          <span class="skill-tag" data-tip="Visualizations in Coffee & Happiness projects">Matplotlib</span>
-          <span class="skill-tag" data-tip="Sign Language & Object Detection projects">TensorFlow</span>
+          <span class="skill-tag" data-tip="Logistic Regression, clustering — HALIGHT & RecurrIQ">scikit-learn</span>
+          <span class="skill-tag" data-tip="RecurrIQ cancer recurrence project">XGBoost</span>
+          <span class="skill-tag" data-tip="RecurrIQ cancer recurrence project">LightGBM</span>
+          <span class="skill-tag" data-tip="AlphaView — 30-day stock forecasting">Prophet</span>
+          <span class="skill-tag" data-tip="AlphaView & RecurrIQ — live deployed apps">Streamlit</span>
+          <span class="skill-tag" data-tip="Visualizations across projects">Matplotlib / Seaborn</span>
         </div>
       </div>
       <div class="skill-group reveal">
@@ -743,6 +749,7 @@ footer {
         <h3>Data Engineering</h3>
         <div class="skill-tags">
           <span class="skill-tag" data-tip="Querying & database coursework at St. Clair">SQL Server</span>
+          <span class="skill-tag" data-tip="HALIGHT capstone — 4 years of cloud data">Amazon Athena</span>
           <span class="skill-tag" data-tip="Data pipeline design across projects">ETL Pipelines</span>
           <span class="skill-tag" data-tip="HALIGHT capstone — schema design">Data Modeling</span>
           <span class="skill-tag" data-tip="Cloud fundamentals certification track">Azure</span>
@@ -806,91 +813,58 @@ footer {
     </div>
     <div class="projects-grid">
       <div class="project-card reveal">
-        <div class="project-type">Industry Capstone</div>
-        <h3>Enterprise Data Analytics &mdash; HALIGHT</h3>
-        <p class="project-desc">Two-semester industry capstone building Power BI dashboards for customer retention and churn analysis. Designed data models, wrote DAX measures, and explored churn-prediction models using scikit-learn.</p>
+        <div class="project-type">Industry Capstone &mdash; Certified</div>
+        <h3>Enterprise User Engagement Analytics &mdash; HALIGHT Inc.</h3>
+        <p class="project-desc">Two-semester industry capstone querying 4 years of proprietary data via Amazon Athena. Built K-Means clustering (3 engagement profiles), Logistic Regression (97% accuracy, 100% recall), and Seasonal Naïve time-series forecasting (5.84% MAPE). Delivered 3 interactive Power BI dashboards to a real client stakeholder — including a What-If Retention Planner modelling up to 14,000 users preserved annually.</p>
         <div class="project-tech">
+          <span class="tech-tag">Amazon Athena</span>
           <span class="tech-tag">Power BI</span>
           <span class="tech-tag">DAX</span>
           <span class="tech-tag">Python</span>
           <span class="tech-tag">scikit-learn</span>
-          <span class="tech-tag">pandas</span>
+          <span class="tech-tag">statsmodels</span>
+          <span class="tech-tag">K-Means</span>
+          <span class="tech-tag">Logistic Regression</span>
         </div>
       </div>
       <div class="project-card reveal">
-        <div class="project-type">Financial Analytics</div>
-        <h3>Investment Analytics Dashboard</h3>
-        <p class="project-desc">Multi-tab Streamlit dashboard featuring CAPM, WACC, DCF valuation, Monte Carlo simulation, and technical analysis (SMA, EMA, WMA, RSI, MACD) with crossover consensus signals across 8 companies.</p>
+        <div class="project-type">Financial Analytics &mdash; <a href="https://alphaview-app.streamlit.app" target="_blank" style="color:var(--accent);text-decoration:none;">Live App ↗</a></div>
+        <h3>AlphaView: Investment Analysis Dashboard</h3>
+        <p class="project-desc">Multi-tab Streamlit dashboard featuring CAPM, WACC, DCF intrinsic valuation, Monte Carlo simulation (100 runs, 30-day VaR), and technical analysis (SMA, EMA, RSI, MACD, Bollinger Bands) with crossover consensus signals. Live Yahoo Finance data, peer competitor comparison by sector, and Prophet time-series forecasting with a custom dark-themed UI.</p>
         <div class="project-tech">
           <span class="tech-tag">Python</span>
           <span class="tech-tag">Streamlit</span>
+          <span class="tech-tag">Plotly</span>
+          <span class="tech-tag">Prophet</span>
           <span class="tech-tag">Monte Carlo</span>
-          <span class="tech-tag">CAPM</span>
-          <span class="tech-tag">DCF</span>
+          <span class="tech-tag">CAPM / DCF</span>
+          <span class="tech-tag">yfinance</span>
         </div>
       </div>
       <div class="project-card reveal">
-        <div class="project-type">Computer Vision</div>
-        <h3>Sign Language Gesture Detection</h3>
-        <p class="project-desc">Real-time gesture recognition system using TensorFlow, LabelImg, and OpenCV to detect sign language gestures via webcam. Custom dataset labeling, model training, and live bounding-box inference.</p>
+        <div class="project-type">Healthcare ML &mdash; <a href="https://recurriq.streamlit.app" target="_blank" style="color:var(--accent);text-decoration:none;">Live App ↗</a></div>
+        <h3>RecurrIQ: Thyroid Cancer Recurrence Predictor</h3>
+        <p class="project-desc">Clinical decision-support app predicting thyroid cancer recurrence from 383 patients and 13 features. Trained and compared 5 models (Logistic Regression, Decision Tree, Random Forest, XGBoost, LightGBM). Used 5-fold stratified cross-validation to optimize the decision threshold to 0.292, raising recall to 0.84 — minimizing missed true recurrences in a clinically critical setting.</p>
         <div class="project-tech">
-          <span class="tech-tag">TensorFlow</span>
-          <span class="tech-tag">OpenCV</span>
-          <span class="tech-tag">LabelImg</span>
           <span class="tech-tag">Python</span>
-        </div>
-      </div>
-      <div class="project-card reveal">
-        <div class="project-type">Innovation</div>
-        <h3>Ford Workplace Safety App</h3>
-        <p class="project-desc">Web app for Ford factory employees using QR codes to deliver customized mobility exercises. Linked injury data to specific exercises with a data analytics component for workplace safety insights.</p>
-        <div class="project-tech">
-          <span class="tech-tag">Web Dev</span>
-          <span class="tech-tag">QR Codes</span>
-          <span class="tech-tag">Analytics</span>
-          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Streamlit</span>
+          <span class="tech-tag">XGBoost</span>
+          <span class="tech-tag">LightGBM</span>
+          <span class="tech-tag">scikit-learn</span>
+          <span class="tech-tag">ROC / CV</span>
+          <span class="tech-tag">Threshold Optimization</span>
         </div>
       </div>
       <div class="project-card reveal">
         <div class="project-type">Marketing Analytics</div>
-        <h3>Airbnb Business Insights</h3>
-        <p class="project-desc">Market comparison of Airbnb listings in Toronto and Vancouver. Performed segmentation and sentiment analysis using Python, Excel, and Power BI to uncover pricing trends and guest demand patterns.</p>
+        <h3>Airbnb Business Insights &mdash; Toronto &amp; Vancouver</h3>
+        <p class="project-desc">Market comparison of Airbnb listings across two major Canadian cities. Performed segmentation and sentiment analysis using Python, Excel, and Power BI to surface guest preference patterns, pricing trends, and occupancy drivers. Delivered visual dashboards and strategic recommendations.</p>
         <div class="project-tech">
           <span class="tech-tag">Python</span>
           <span class="tech-tag">Power BI</span>
           <span class="tech-tag">Excel</span>
           <span class="tech-tag">Sentiment Analysis</span>
-        </div>
-      </div>
-      <div class="project-card reveal">
-        <div class="project-type">Object Detection</div>
-        <h3>Object Detection with TensorFlow</h3>
-        <p class="project-desc">Built an object detection model using TensorFlow and a pre-trained deep learning architecture. Implemented preprocessing, model inference, and bounding-box visualization with OpenCV.</p>
-        <div class="project-tech">
-          <span class="tech-tag">TensorFlow</span>
-          <span class="tech-tag">OpenCV</span>
-          <span class="tech-tag">Deep Learning</span>
-          <span class="tech-tag">Python</span>
-        </div>
-      </div>
-      <div class="project-card reveal">
-        <div class="project-type">Data Visualization</div>
-        <h3>Global Happiness Data Analysis</h3>
-        <p class="project-desc">Interactive Tableau dashboards exploring global socio-economic patterns and happiness indicators. Presented findings using data-storytelling and visualization best practices.</p>
-        <div class="project-tech">
-          <span class="tech-tag">Tableau</span>
-          <span class="tech-tag">Data Storytelling</span>
-        </div>
-      </div>
-      <div class="project-card reveal">
-        <div class="project-type">Business Analytics</div>
-        <h3>Coffee Company Business Analysis</h3>
-        <p class="project-desc">Analyzed revenue trends and profitability drivers using statsmodels and scipy.stats. Provided actionable recommendations to improve growth and reduce financial losses.</p>
-        <div class="project-tech">
-          <span class="tech-tag">statsmodels</span>
-          <span class="tech-tag">scipy</span>
-          <span class="tech-tag">Matplotlib</span>
-          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Segmentation</span>
         </div>
       </div>
     </div>
@@ -930,8 +904,8 @@ footer {
     </div>
     <div class="certs-grid">
       <div class="cert-item reveal">
-        <div class="cert-icon">&#x1F4D8;</div>
-        <div class="cert-info"><h4>Model Validation in Python</h4><p>DataCamp &middot; Feb 2025</p></div>
+        <div class="cert-icon">&#x1F3C6;</div>
+        <div class="cert-info"><h4>Data Analyst — Industry Certificate</h4><p>HALIGHT Inc. &middot; Apr 2026</p></div>
       </div>
       <div class="cert-item reveal">
         <div class="cert-icon">&#x1F4D8;</div>
