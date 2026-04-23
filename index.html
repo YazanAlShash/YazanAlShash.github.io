@@ -252,6 +252,13 @@ nav .container { display: flex; justify-content: space-between; align-items: cen
   border-radius: var(--radius);
   padding: 20px 24px;
   text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.stat-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow);
 }
 .stat-card .num {
   font-size: 1.8rem;
@@ -698,11 +705,11 @@ footer {
       <div class="hero-visual">
         <div class="hero-orb"></div>
         <div class="hero-stats">
-          <div class="stat-card"><div class="num">4</div><div class="label">Projects</div></div>
-          <div class="stat-card"><div class="num">2</div><div class="label">Live Apps</div></div>
-          <div class="stat-card"><div class="num">BSc</div><div class="label">Biomed Science</div></div>
-          <div class="stat-card"><div class="num">Post-Grad</div><div class="label">Data Analytics</div></div>
-          <div class="stat-card stat-card-wide"><div class="num">3.75 / 4.0</div><div class="label">GPA &middot; Data Analytics Program</div></div>
+          <a href="#projects" class="stat-card"><div class="num">4</div><div class="label">Projects</div></a>
+          <a href="#projects" class="stat-card"><div class="num">2</div><div class="label">Live Apps</div></a>
+          <a href="#education" class="stat-card"><div class="num">BSc</div><div class="label">Biomed Science</div></a>
+          <a href="#education" class="stat-card"><div class="num">Post-Grad</div><div class="label">Data Analytics</div></a>
+          <a href="#education" class="stat-card stat-card-wide"><div class="num">3.75 / 4.0</div><div class="label">GPA &middot; Data Analytics Program</div></a>
         </div>
       </div>
     </div>
